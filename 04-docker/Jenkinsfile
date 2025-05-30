@@ -104,6 +104,7 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'cd 04-docker'
+                sh 'ls'
                 sh 'docker build -t ${IMAGE_TAG} .'
                 echo "Docker image build successfully"
                 sh 'docker image ls'
