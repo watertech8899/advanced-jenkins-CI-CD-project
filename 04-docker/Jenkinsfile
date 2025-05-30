@@ -106,13 +106,12 @@ pipeline {
                 sh '''
                     bash -c "
                         cd 04-docker
-                        ls
+                        docker build -t ${IMAGE_TAG} .
+                        echo "Docker image build successfully"
+                        docker image ls
                     "
                 '''
-                sh 'ls'
-                sh 'docker build -t ${IMAGE_TAG} .'
-                echo "Docker image build successfully"
-                sh 'docker image ls'
+
             }
         }
 
