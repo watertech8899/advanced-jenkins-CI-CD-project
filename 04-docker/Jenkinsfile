@@ -106,6 +106,7 @@ pipeline {
                 sh '''
                     bash -c "
                         cd 04-docker
+                        ls
                     "
                 '''
                 sh 'ls'
