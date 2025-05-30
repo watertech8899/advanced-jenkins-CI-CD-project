@@ -25,5 +25,12 @@ pipeline {
 
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v //var/run/docker.sock:/var/run/docker.sock --name jenkins-python watertechsakei/jenkins-python-docker:v2
 
+since my jenkins container needs to make sure the docker-in-docker is accessible through the socket 
+docker exec -it --user root jenkins-python bash
+quick and dirty way
+chmod 666 /var/run/docker.sock
+
+# githubwebook with ngrok
+
 # run container on linux
 
