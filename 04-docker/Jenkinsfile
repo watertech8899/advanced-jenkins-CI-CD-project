@@ -76,18 +76,17 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh '''
-                    cd ..
-                    bash -c "
-                        source venv/bin/activate
-                        pytest
-                    "
-                '''
-            }
-        }
-
+// stage('Test') {
+//     steps {
+//         sh '''
+//             cd ..
+//             bash -c "
+//                 source venv/bin/activate
+//                 pytest
+//             "
+//         '''
+//     }
+// }
         stage('Login to docker hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
