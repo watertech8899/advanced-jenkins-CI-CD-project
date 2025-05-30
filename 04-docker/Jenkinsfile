@@ -63,11 +63,12 @@ pipeline {
         stage('Setup') {
             steps {
                 sh '''
-                    
-                    python3 -m venv venv
-                    source venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+                    bash -c "
+                        python3 -m venv venv
+                        source venv/bin/activate
+                        pip install --upgrade pip
+                        pip install -r requirements.txt
+                    "
                 '''
             }
         }
@@ -75,8 +76,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    source venv/bin/activate
-                    pytest
+                    bash -c "
+                        source venv/bin/activate
+                        pytest
+                    "
                 '''
             }
         }
