@@ -34,3 +34,6 @@ chmod 666 /var/run/docker.sock
 
 # run container on linux
 
+# run minikube tunnel to simulate loadbalance to get external IP
+
+# using K6 to test how well it handles web tracffic
