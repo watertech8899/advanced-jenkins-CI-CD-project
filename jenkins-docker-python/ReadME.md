@@ -6,7 +6,7 @@ docker tag jenkins-python-docker watertechsakei/jenkins-python-docker:latest
 docker login
 docker push watertechsakei/jenkins-python-docker:latest
 
-# jenkins pipeline to build and push docker image to docker hub repo
+# jenkins pipeline to build and push docker image to dockerhub repo
 
 pipeline {
     agent any
@@ -41,12 +41,16 @@ docker run -d \
 
 getent group docker
 
+
+
 # another way is modify docker.sock file to allow permission 666
 
-since my jenkins container needs to make sure the docker-in-docker is accessible through the socket 
+# since my jenkins container needs to make sure the docker-in-docker is accessible through the socket 
 docker exec -it --user root jenkins-python bash
-quick and dirty way
+# quick and dirty way
 chmod 666 /var/run/docker.sock
+
+
 
 # github remote to trigger webhook and then jenkins build
 git add .
