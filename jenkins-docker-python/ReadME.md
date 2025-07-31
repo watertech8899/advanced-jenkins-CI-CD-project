@@ -23,7 +23,7 @@ pipeline {
     }
 }
 
-# run container on Windows, with jenkins access to docker host daemon
+# run container on Windows with jenkins access to docker host daemon
 
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v //var/run/docker.sock:/var/run/docker.sock --name jenkins-python watertechsakei/jenkins-python-docker:v2
 
@@ -59,11 +59,12 @@ git push origin main
 
 # to have githubwebook link, ngrok needs to be running
 RUN: ngrok http 8080
+
 You should see something like below:
 
 Forwarding  https://abc123.ngrok.io -> http://localhost:8080
 
-copy URL https://abc123.ngrok.io and paste to githubwehook
+copy URL: https://abc123.ngrok.io and paste to githubwehook
 
 # run container on linux
 
