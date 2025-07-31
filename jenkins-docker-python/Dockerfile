@@ -12,11 +12,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -g 103 docker && usermod -aG docker jenkins
-
+RUN groupadd -g 103 docker && usermod -aG docker jenkins 
+# add to group
 # Add Jenkins user to the Docker group
-
-
 USER jenkins
 # run jenkins as root quick and dirty way
 # or can run jenkins as jenkins user
