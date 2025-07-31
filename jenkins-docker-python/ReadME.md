@@ -27,6 +27,21 @@ pipeline {
 
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v //var/run/docker.sock:/var/run/docker.sock --name jenkins-python watertechsakei/jenkins-python-docker:v2
 
+# another way to add jenkins as user so it can access the docker host daemon
+
+docker run -d \
+  -p 8080:8080 -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --group-add 999 \
+  --name jenkins-python \
+  watertechsakei/jenkins-python-docker:v2
+
+# cange the GID based on 
+
+getent group docker
+
+# another way is modify docker.sock file to allow permission 666
 
 since my jenkins container needs to make sure the docker-in-docker is accessible through the socket 
 docker exec -it --user root jenkins-python bash
@@ -51,3 +66,5 @@ copy URL https://abc123.ngrok.io and paste to githubwehook
 # run minikube tunnel to simulate loadbalance to get external IP
 
 # using K6 to test how well it handles web tracffic
+
+
