@@ -32,7 +32,18 @@ docker exec -it --user root jenkins-python bash
 quick and dirty way
 chmod 666 /var/run/docker.sock
 
-# githubwebook with ngrok
+# github remote to trigger webhook and then jenkins build
+git add .
+git commit -m "COMMIT MESSAGES"
+git push origin main
+
+# to have githubwebook link, ngrok needs to be running
+RUN: ngrok http 8080
+You should see something like below:
+
+Forwarding  https://abc123.ngrok.io -> http://localhost:8080
+
+copy URL https://abc123.ngrok.io and paste to githubwehook
 
 # run container on linux
 
