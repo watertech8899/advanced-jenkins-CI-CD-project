@@ -6,7 +6,7 @@ docker tag jenkins-python-docker watertechsakei/jenkins-python-docker:latest
 docker login
 docker push watertechsakei/jenkins-python-docker:latest
 
-# jenkins pipeline to build and push docker image
+# jenkins pipeline to build and push docker image to docker hub repo
 
 pipeline {
     agent any
