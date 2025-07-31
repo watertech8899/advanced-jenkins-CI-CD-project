@@ -1,3 +1,5 @@
+Please refer to the 04-docker/Jenkinsfile
+
 # build and push to dockerhun public repo
 docker build -t jenkins-python-docker .
 docker tag jenkins-python-docker watertechsakei/jenkins-python-docker:latest
