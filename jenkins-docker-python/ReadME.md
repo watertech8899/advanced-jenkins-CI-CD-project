@@ -1,6 +1,6 @@
 Please refer to the 04-docker/Jenkinsfile
 
-# build and push to dockerhun public repo
+# build and push to dockerhub public repo
 docker build -t jenkins-python-docker .
 docker tag jenkins-python-docker watertechsakei/jenkins-python-docker:latest
 docker login
@@ -23,9 +23,10 @@ pipeline {
     }
 }
 
-# run container on Windows
+# run container on Windows, with jenkins access to docker host daemon
 
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v //var/run/docker.sock:/var/run/docker.sock --name jenkins-python watertechsakei/jenkins-python-docker:v2
+
 
 since my jenkins container needs to make sure the docker-in-docker is accessible through the socket 
 docker exec -it --user root jenkins-python bash
